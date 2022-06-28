@@ -7,4 +7,3 @@ RUN echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | \
 RUN sudo apt update
 RUN sudo apt install elasticsearch -y
 RUN sudo service elasticsearch start
-RUN sudo chkconfig elasticsearch on
