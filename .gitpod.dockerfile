@@ -7,3 +7,13 @@ RUN echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | \
 RUN sudo add-apt-repository ppa:ondrej/php
 RUN sudo apt update
 RUN sudo apt install -y elasticsearch php7.4-xdebug php8.1-xdebug
+
+RUN echo "alias osmc='php vendor/osmphp/core/bin/compile.php'"  >> $HOME/.bashrc
+RUN echo "alias osmh='php vendor/osmphp/core/bin/hint.php'"  >> $HOME/.bashrc
+RUN echo "alias osmt='php vendor/osmphp/framework/bin/tools.php'"  >> $HOME/.bashrc
+RUN echo "alias osm='php vendor/osmphp/framework/bin/console.php'"  >> $HOME/.bashrc
+
+RUN sudo echo "xdebug.mode=debug" >> /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.discover_client_host = 1" >> /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.client_port = 9000" >> /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.max_nesting_level = 500" >> /etc/php/8.1/mods-available/xdebug.ini
