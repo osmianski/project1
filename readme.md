@@ -1,3 +1,10 @@
+<a href="https://gitpod.io/#https://github.com/osmianski/project1">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+
 This README is a template. Fill `{placeholders}` with your project details.
 
 * [About This Project](#about-this-project) 
