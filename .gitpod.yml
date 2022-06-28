@@ -1,8 +1,28 @@
 image:
   file: .gitpod.dockerfile
+
 tasks:
   - name: Install
-    before: >
+    before: |
       npm install -g gulp-cli
-    init: >
+    init: |
+      mysql -u root -e "create database osm"
+      bin/create-env.sh
+      sed -i "s|NAME=...|NAME=osm|g" .env
+      sed -i "s|MYSQL_USERNAME=...|MYSQL_USERNAME=root|g" .env
+      sed -i "s|MYSQL_PASSWORD=...|MYSQL_PASSWORD=|g" .env
       bin/install.sh
+      gp sync-done install
+
+  - name: Web Server
+    init: gp sync-await install
+    command: php -S 0.0.0.0:8000 -t public/Osm_App public/Osm_App/router.php
+
+  - name: Watching Files
+    init: gp sync-await install
+    command: gulp watch
+
+ports:
+  - name: Web App
+    port: 8000
+    onOpen: open-browser
