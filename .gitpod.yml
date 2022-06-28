@@ -24,3 +24,8 @@ ports:
   - name: Web App
     port: 8000
     onOpen: open-browser
+
+jetbrains:
+  phpstorm:
+    prebuilds:
+      version: stable
