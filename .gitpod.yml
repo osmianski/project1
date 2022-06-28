@@ -5,7 +5,7 @@ tasks:
   - name: Install And Run
     before: |
       npm install -g gulp-cli
-      mysql -u root -e "create database osm"
+      mysql -u root -e "CREATE DATABASE IF NOT EXISTS osm"
     init: |
       bin/create-env.sh
       sed -i "s|MYSQL_USERNAME=\\.\\.\\.|MYSQL_USERNAME=root|g" .env.Osm_App
