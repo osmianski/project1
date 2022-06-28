@@ -1,2 +1,8 @@
 image:
   file: .gitpod.dockerfile
+tasks:
+  - name: Install
+    before: >
+      npm install -g gulp-cli
+    init: >
+      bin/install.sh
