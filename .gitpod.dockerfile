@@ -13,7 +13,7 @@ RUN echo "alias osmh='php vendor/osmphp/core/bin/hint.php'"  >> $HOME/.bashrc
 RUN echo "alias osmt='php vendor/osmphp/framework/bin/tools.php'"  >> $HOME/.bashrc
 RUN echo "alias osm='php vendor/osmphp/framework/bin/console.php'"  >> $HOME/.bashrc
 
-RUN sudo echo "xdebug.mode=debug" >> /etc/php/8.1/mods-available/xdebug.ini
-RUN sudo echo "xdebug.discover_client_host = 1" >> /etc/php/8.1/mods-available/xdebug.ini
-RUN sudo echo "xdebug.client_port = 9000" >> /etc/php/8.1/mods-available/xdebug.ini
-RUN sudo echo "xdebug.max_nesting_level = 500" >> /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.mode=debug" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.discover_client_host = 1" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.client_port = 9000" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini
+RUN sudo echo "xdebug.max_nesting_level = 500" | sudo tee -a /etc/php/8.1/mods-available/xdebug.ini
