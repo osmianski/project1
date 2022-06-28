@@ -11,7 +11,7 @@ tasks:
       sed -i "s|MYSQL_USERNAME=\\.\\.\\.|MYSQL_USERNAME=root|g" .env.Osm_App
       sed -i "s|MYSQL_PASSWORD=\\.\\.\\.|MYSQL_PASSWORD=|g" .env.Osm_App
       sed -i "s|NAME=\\.\\.\\.|NAME=osm|g" .env.Osm_App
-      echo "HTTPS=true" >> .env.Osm_App
+      echo "\\n\\nHTTPS=true" >> .env.Osm_App
       bin/install.sh
       php vendor/osmphp/core/bin/hint.php
     command: |
